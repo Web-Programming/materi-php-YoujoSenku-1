@@ -9,7 +9,7 @@
     <h2>Contoh Form POST</h2>
     <form method="POST" action="proses_keuangan.php">
         <label for="tanggalTransaksi">Tanggal Transaksi</label>
-        <input id="tanggalTransaksi" name="tanggalTransaksi" type="date" placeholder="Isi Tanggal">
+        <input id="tanggalTransaksi" name="tanggalTransaksi" type="date">
         <br/>
         <label for="jenisTransaksi">Jenis Transaksi</label>
         <select id="jenisTransaksi" name="jenisTransaksi">
