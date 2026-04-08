@@ -1,3 +1,6 @@
+<?php
+$jenisTransaksi = trim($_GET['jenisTransaksi'] ?? ''); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
