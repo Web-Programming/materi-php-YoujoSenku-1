@@ -93,3 +93,32 @@ Route::get('/detailproduk/{name}', function($name){
         ]
     );
 });
+
+// Route::get('/produk/', function(){
+//     return view('produk.index');
+// });
+
+// Route::get('/produk/create', function(){
+//     return view('produk.create');
+// });
+
+// Route::get('/produk/search', function(){
+//     return view('produk.search');
+// });
+
+Route::get('/produk/detail', function(){
+    return view('produk.detail');
+});
+
+use App\Http\Controllers\ProductController;
+//php artisan make:controller ProductController -resource
+Route::resource('/produk', ProductController::class);
+Route::get('/produk/search', ProductController::class.'@search');
+
+// Route::get('/supplier/', function(){
+//     return view('supplier.index');
+// });
+
+//php artisan make:controller SupplierController -resource
+Route::resource('/produk', ProductController::class);
+
