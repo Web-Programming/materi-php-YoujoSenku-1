@@ -14,3 +14,9 @@
 2. Pastikan key sudah digenerate
 3. Pastikan database sudah disiapkan
 4. Jalankan perintah 'php artisan serve'
+
+## Latihan 
+1. Buat controller baru dengan nama SupplierController
+2. Daftarkan path /supplier pada route web.php
+3. Buat list supplier dengan pada view supplier.index
+5. Buat halaman detail supplier, tampilkan informasi detail pada view supplier.detail

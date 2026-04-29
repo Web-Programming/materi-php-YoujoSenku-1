@@ -1,6 +1,6 @@
 @extends('app.master')
 
-@section('title', 'Produk Index')
+@section('title', $title)
 
 @section('sidebar')
     @parent
@@ -12,12 +12,44 @@
 @endsection
 
 @section('content')
-    <h1 class="h3 mb-3">Produk Index<h1>
-    <p class="text-muted">Halaman daftar produk menggunakan layout master.</p>
+<div class="container-fluid">
+    <h1 class="mb-4">{{ $title }}</h1>
 
-    <div class="card">
-        <div class="card-body">
-            Konten produk bisa ditampilkan di sini.
-        </div>
+    <div class="tabel-responsive">
+        <table class="table table-striped table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>NO</th>
+                    <th>Nama Produk</th>
+                    <th>Harga</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{-- @for ($i = 0; $i < count($products); $i++)
+                    <tr>
+                        <td>{{ $i + 1 }}</td>
+                        <td>{{ $products[$i]['name'] }}</td>
+                        <td>{{ number_format($products[$i]['price'], 0, ',', '.') }}</td>
+                        <td>
+                            <a href="{{ url('/produk/' . $products[$i]['id'] )}}" class="btn btn-sm btn-info">Detail</a>
+                            <a href="{{ url('/produk/' . $products[$i]['id'] . '/edit') }}" class="btn btn-sm btn-primary">Edit</a>
+                        </td>
+                    </tr>
+                @endfor --}}
+                @foreach ($products as $item)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $item[$i]['name'] }}</td>
+                        <td>{{ number_format($item[$i]['price'], 0, ',', '.') }}</td>
+                        <td>
+                            <a href="{{ url('/produk/' . $item['id'] )}}" class="btn btn-sm btn-info">Detail</a>
+                            <a href="{{ url('/produk/' . $item['id'] . '/edit') }}" class="btn btn-sm btn-primary">Edit</a>
+                        </td>
+                    </tr>
+                @endfor
+            </tbody>
+        </table>
     </div>
+</div>
 @endsection

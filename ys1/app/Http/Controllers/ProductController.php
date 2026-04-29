@@ -11,7 +11,20 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('produk.index');
+        $products = [
+            ['id' => 1, 'name' => 'Laptop', 'price' => 15000000],
+            ['id' => 2, 'name' => 'Mouse', 'price' => 5000000],
+            ['id' => 3, 'name' => 'Keyboard', 'price' => 3000000],
+            ['id' => 4, 'name' => 'Monitor', 'price' => 2000000]
+        ];
+
+        $title = 'Daftar Produk';
+
+        return view('produk.index', compact('title', 'products'));
+        // return view('produk.index', [
+        //     'products' => $products,
+        //     'title' => $title
+        // ]);
     }
 
     /**
@@ -35,7 +48,9 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $title = 'Detail Produk';
+        $product = ['id' => 4, 'name' => 'Monitor', 'price' => 2000000];
+        return view('produk.detail', compact('id', 'product', 'title'));
     }
 
     /**

@@ -1,16 +1,24 @@
-@extends('template')
-@section('title','Ini Halaman Detail Produk')
+@extends('app.master')
 
-@section('navbar')
-    <b>Ini Bisa Diisi Navbar</b>    
+@section('title', $title)
+
+@section('sidebar')
+    @parent
+    @section('submenu-produk')
+        <a href="/produk/create" class="list-group-item list-group-item-action ps-4>">Tambah Produk</a>
+        <a href="/produk/search" class="list-group-item list-group-item-action ps-4>">Cari Produk</a>
+    @endsection
+
 @endsection
-@section('content')
-    <h2>Ini halaman detail produk</h2>
-        Nama Produk : <b>{{ $product_name }}</b></br>
-        Id : <b>{{ $id }}</b>
 
-        <hr />
-        @for ($i = 0; $i < 5; $i++)
-            Data {{$i}} <br />
-        @endfor
+@section('content')
+<div class="container-fluid">
+    <h1 class="mb-4">{{ $title }}</h1>
+
+    <p>Nama Produk: {{ $product['name'] }}</p>
+    <p>ID Produk: {{ $product['id'] }}</p>
+    <p>Price: Rp {{ number_format($product['price'], 2, ',', '.') }}</p>
+    <hr>
+    <a href="{{ url('/produk') }}" class="btn  btn-primary">Kembali</a>
+</div>
 @endsection
