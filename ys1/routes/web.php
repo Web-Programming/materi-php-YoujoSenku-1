@@ -106,19 +106,23 @@ Route::get('/detailproduk', function(){
 //     return view('produk.search');
 // });
 
-Route::get('/produk/detail', function(){
-    return view('produk.detail');
-});
+// Route::get('/produk/detail', function(){
+//     return view('produk.detail');
+// });
 
 use App\Http\Controllers\ProductController;
 //php artisan make:controller ProductController -resource
 Route::resource('/produk', ProductController::class);
 Route::get('/produk/search', ProductController::class.'@search');
+Route::get('/produk/detail', ProductController::class.'@detail');
 
 // Route::get('/supplier/', function(){
 //     return view('supplier.index');
 // });
 
+use App\Http\Controllers\SupplierController;
 //php artisan make:controller SupplierController -resource
-Route::resource('/produk', ProductController::class);
+Route::resource('/supplier', SupplierController::class);
+Route::get('/supplier/search', SupplierController::class.'@search');
+Route::get('/supplier/detail', SupplierController::class.'@detail');
 

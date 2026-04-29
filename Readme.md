@@ -19,4 +19,5 @@
 1. Buat controller baru dengan nama SupplierController
 2. Daftarkan path /supplier pada route web.php
 3. Buat list supplier dengan pada view supplier.index
+4. Tampilkan list supplier pada view supplier.index
 5. Buat halaman detail supplier, tampilkan informasi detail pada view supplier.detail

@@ -40,14 +40,14 @@
                 @foreach ($products as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item[$i]['name'] }}</td>
-                        <td>{{ number_format($item[$i]['price'], 0, ',', '.') }}</td>
+                        <td>{{ $item['name'] }}</td>
+                        <td>{{ number_format($item['price'], 0, ',', '.') }}</td>
                         <td>
                             <a href="{{ url('/produk/' . $item['id'] )}}" class="btn btn-sm btn-info">Detail</a>
                             <a href="{{ url('/produk/' . $item['id'] . '/edit') }}" class="btn btn-sm btn-primary">Edit</a>
                         </td>
                     </tr>
-                @endfor
+                @endforeach
             </tbody>
         </table>
     </div>

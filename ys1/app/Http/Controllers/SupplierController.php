@@ -11,7 +11,20 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        return view('supplier.index');
+        $supplier = [
+            ['id' => 1, 'name' => 'Supplier A', 'address' => 'Jl. Merdeka No. 1'],
+            ['id' => 2, 'name' => 'Supplier B', 'address' => 'Jl. Sudirman No. 2'],
+            ['id' => 3, 'name' => 'Supplier C', 'address' => 'Jl. Thamrin No. 3'],
+            ['id' => 4, 'name' => 'Supplier D', 'address' => 'Jl. Gatot Subroto No. 4']
+        ];
+
+        $title = 'Daftar Supplier';
+
+        return view('supplier.index', compact('title', 'supplier'));
+        // return view('supplier.index', [
+        //     'supplier' => $supplier,
+        //     'title' => $title
+        // ]);
     }
 
     /**
@@ -19,7 +32,7 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        //
+        return view('supplier.create');
     }
 
     /**
