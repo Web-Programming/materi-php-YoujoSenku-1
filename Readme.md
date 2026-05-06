@@ -21,3 +21,14 @@
 3. Buat list supplier dengan pada view supplier.index
 4. Tampilkan list supplier pada view supplier.index
 5. Buat halaman detail supplier, tampilkan informasi detail pada view supplier.detail
+
+## Latihan
+1. Buat model, migration dan seeder untuk data Supplier dengan struktur tabel :
+id, name (varchar(150)), phone (varchar(15)), address (text, nullable)
+2. Buat seeder untuk menambahkan data Supplier dummy
+3. Tampilkan data list supplier pada view supplier.index, gunakan model Supplier untuk memanggil data list supplier dari tabel
+
+## Lanjutan :
+1. Buat form tambah dan edit produk pada masing - masing view
+2. Gunakan ProdukController untuk menghandle post request
+3. Gunakan model Produk untuk menyimpan data produk dan mengupdate
