@@ -23,7 +23,8 @@ class ProductController extends Controller
         // ];
         // $products = Product::all(); //cara 1
         // $products = DB::select('SELECT * FROM products'); //cara 2
-        $products = DB::table('products')->get(); //cara 3
+        // $products = DB::table('products')->get(); //cara 3
+        $products = Product::paginate(10); //cara 4 pagination
 
         return view('produk.index', compact('title', 'products'));
         // return view('produk.index', [
@@ -54,7 +55,7 @@ class ProductController extends Controller
     public function show(string $id)
     {
         $title = 'Detail Produk';
-        $product = ['id' => 4, 'name' => 'Monitor', 'price' => 2000000];
+        $product = Product::find($id);
         return view('produk.detail', compact('id', 'product', 'title'));
     }
 

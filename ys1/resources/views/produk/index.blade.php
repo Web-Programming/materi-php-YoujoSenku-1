@@ -47,7 +47,7 @@
                         <td>{{ $item->name }}</td>
                         <td>{{ number_format($item->price, 0, ',', '.') }}</td>
                         <td>{{ $item->description }}</td>
-                        <td>{{ $item->status }}</td>
+                        <td>{{ $item->status }}</td>s
                         <td>{{ $item->is_active }}</td>
                         <td>{{ $item->release_date }}</td>
                         <td>
