@@ -40,11 +40,12 @@
                 @foreach ($supplier as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item['name'] }}</td>
-                        <td>{{ $item['address'] }}</td>
+                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->contact_number }}</td>
+                        <td>{{ $item->address }}</td>
                         <td>
-                            <a href="{{ url('/supplier/' . $item['id'] )}}" class="btn btn-sm btn-info">Detail</a>
-                            <a href="{{ url('/supplier/' . $item['id'] . '/edit') }}" class="btn btn-sm btn-primary">Edit</a>
+                            <a href="{{ url('/supplier/' . $item->id )}}" class="btn btn-sm btn-info">Detail</a>
+                            <a href="{{ url('/supplier/' . $item->id . '/edit') }}" class="btn btn-sm btn-primary">Edit</a>
                         </td>
                     </tr>
                 @endforeach

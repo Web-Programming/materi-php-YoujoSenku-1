@@ -42,6 +42,10 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $item->name }}</td>
                         <td>{{ number_format($item->price, 0, ',', '.') }}</td>
+                        <td>{{ $item->description }}</td>
+                        <td>{{ $item->status }}</td>
+                        <td>{{ $item->is_active }}</td>
+                        <td>{{ $item->release_date }}</td>
                         <td>
                             <a href="{{ url('/produk/' . $item->id )}}" class="btn btn-sm btn-info">Detail</a>
                             <a href="{{ url('/produk/' . $item->id . '/edit') }}" class="btn btn-sm btn-primary">Edit</a>

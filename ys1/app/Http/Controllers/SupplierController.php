@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SupplierController extends Controller
 {
@@ -11,14 +13,15 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        $supplier = [
-            ['id' => 1, 'name' => 'Supplier A', 'address' => 'Jl. Merdeka No. 1'],
-            ['id' => 2, 'name' => 'Supplier B', 'address' => 'Jl. Sudirman No. 2'],
-            ['id' => 3, 'name' => 'Supplier C', 'address' => 'Jl. Thamrin No. 3'],
-            ['id' => 4, 'name' => 'Supplier D', 'address' => 'Jl. Gatot Subroto No. 4']
-        ];
+        // $supplier = [
+        //     ['id' => 1, 'name' => 'Supplier A', 'address' => 'Jl. Merdeka No. 1'],
+        //     ['id' => 2, 'name' => 'Supplier B', 'address' => 'Jl. Sudirman No. 2'],
+        //     ['id' => 3, 'name' => 'Supplier C', 'address' => 'Jl. Thamrin No. 3'],
+        //     ['id' => 4, 'name' => 'Supplier D', 'address' => 'Jl. Gatot Subroto No. 4']
+        // ];
 
         $title = 'Daftar Supplier';
+        $supplier = DB::table('suppliers')->get();
 
         return view('supplier.index', compact('title', 'supplier'));
         // return view('supplier.index', [

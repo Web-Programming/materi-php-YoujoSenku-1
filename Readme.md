@@ -22,6 +22,13 @@
 4. Tampilkan list supplier pada view supplier.index
 5. Buat halaman detail supplier, tampilkan informasi detail pada view supplier.detail
 
+## Membuat model. migration, dan seeder (Supplier)
+1. php artisan make:model Supplier --migration
+2. php artisan make:seeder SupplierSeeder
+
+## Buka seeder
+1. php artisan db:seed --class=SupplierSeeder
+
 ## Latihan
 1. Buat model, migration dan seeder untuk data Supplier dengan struktur tabel :
 id, name (varchar(150)), phone (varchar(15)), address (text, nullable)
@@ -32,3 +39,4 @@ id, name (varchar(150)), phone (varchar(15)), address (text, nullable)
 1. Buat form tambah dan edit produk pada masing - masing view
 2. Gunakan ProdukController untuk menghandle post request
 3. Gunakan model Produk untuk menyimpan data produk dan mengupdate
+
