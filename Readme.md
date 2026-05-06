@@ -29,6 +29,9 @@
 ## Buka seeder
 1. php artisan db:seed --class=SupplierSeeder
 
+## Buat factory
+1. php artisan make:factory ProductFactory
+
 ## Latihan
 1. Buat model, migration dan seeder untuk data Supplier dengan struktur tabel :
 id, name (varchar(150)), phone (varchar(15)), address (text, nullable)

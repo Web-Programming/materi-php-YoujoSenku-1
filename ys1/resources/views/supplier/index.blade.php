@@ -21,6 +21,7 @@
                 <tr>
                     <th>NO</th>
                     <th>Nama Supplier</th>
+                    <th>Nomor Kontak</th>
                     <th>Alamat</th>
                     <th>Action</th>
                 </tr>
@@ -37,15 +38,15 @@
                         </td>
                     </tr>
                 @endfor --}}
-                @foreach ($supplier as $item)
+                @foreach ($supplier as $index => $supplier)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->name }}</td>
-                        <td>{{ $item->contact_number }}</td>
-                        <td>{{ $item->address }}</td>
+                        <td>{{ $supplier->name }}</td>
+                        <td>{{ $supplier->contact_number }}</td>
+                        <td>{{ $supplier->address }}</td>
                         <td>
-                            <a href="{{ url('/supplier/' . $item->id )}}" class="btn btn-sm btn-info">Detail</a>
-                            <a href="{{ url('/supplier/' . $item->id . '/edit') }}" class="btn btn-sm btn-primary">Edit</a>
+                            <a href="{{ url('/supplier/' . $supplier->id )}}" class="btn btn-sm btn-info">Detail</a>
+                            <a href="{{ url('/supplier/' . $supplier->id . '/edit') }}" class="btn btn-sm btn-primary">Edit</a>
                         </td>
                     </tr>
                 @endforeach

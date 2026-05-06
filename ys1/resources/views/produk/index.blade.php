@@ -22,6 +22,10 @@
                     <th>NO</th>
                     <th>Nama Produk</th>
                     <th>Harga</th>
+                    <th>Deskripsi</th>
+                    <th>Status</th>
+                    <th>Aktif</th>
+                    <th>Tanggal Rilis</th>
                     <th>Action</th>
                 </tr>
             </thead>
