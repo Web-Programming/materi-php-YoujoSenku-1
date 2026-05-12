@@ -47,7 +47,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([...]); // validasi input
+        $validated = $request->validate(['name', 'price', 'description', 'status', 'is_active', 'release_date']); // validasi input
         $validated['is_active'] = $request->has('is_active') ? 1 : 0; // tangani checkbox
         Product::create($validated); // simpan ke DB
         return redirect()->route('produk.index')
@@ -80,11 +80,11 @@ class ProductController extends Controller
     public function update(Request $request, string $id)
     {
         $product = Product::findOrFail($id);
-        $validated = $request->validate([...]);
+        $validated = $request->validate(['name', 'price', 'description', 'status', 'is_active', 'release_date',]);
         $validated['is_active'] = $request->has('is_active') ? 1 : 0;
         $product->update($validated);
         return redirect()->route('produk.index')
-        ->with('success', 'Produk berhasil diperbarui.');
+            ->with('success', 'Produk berhasil diperbarui.');
     }
 
     /**

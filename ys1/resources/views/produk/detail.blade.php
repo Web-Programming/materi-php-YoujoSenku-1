@@ -18,6 +18,10 @@
     <p>Nama Produk: {{ $product['name'] }}</p>
     <p>ID Produk: {{ $product['id'] }}</p>
     <p>Price: Rp {{ number_format($product['price'], 2, ',', '.') }}</p>
+    <p>Description: {{ $product['description'] }}</p>
+    <p>Status: {{ $product['status'] }}</p>
+    <p>Aktif: {{ $product['is_active'] }}</p>
+    <p>Tanggal Rilis: {{ $product['release_date'] }}</p>
     <hr>
     <a href="{{ url('/produk') }}" class="btn  btn-primary">Kembali</a>
 </div>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -21,11 +21,12 @@ class SupplierController extends Controller
         // ];
 
         $title = 'Daftar Supplier';
-        $supplier = DB::table('suppliers')->get();
+        // $suppliers = DB::table('suppliers')->get();
+        $suppliers = Supplier::paginate(10); //cara 4 pagination
 
-        return view('supplier.index', compact('title', 'supplier'));
+        return view('supplier.index', compact('title', 'suppliers'));
         // return view('supplier.index', [
-        //     'supplier' => $supplier,
+        //     'suppliers' => $suppliers,
         //     'title' => $title
         // ]);
     }
@@ -35,7 +36,8 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        return view('supplier.create');
+        $title = 'Tambah Supplier';
+        return view('supplier.create', compact('title'));
     }
 
     /**
@@ -43,7 +45,10 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate(['name', 'contact_number', 'address']); // validasi input
+        Supplier::create($validated); // simpan ke DB
+        return redirect()->route('supplier.index')
+        ->with('success', 'Supplier berhasil ditambahkan.');
     }
 
     /**
@@ -51,7 +56,9 @@ class SupplierController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $title = 'Detail Supplier';
+        $supplier = Supplier::findOrFail($id); // 404 otomatis jika tidak ditemukan
+        return view('supplier.detail', compact('supplier', 'title'));
     }
 
     /**
@@ -59,7 +66,9 @@ class SupplierController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $title = "Edit Supplier";
+        $supplier = Supplier::findOrFail($id);
+        return view('supplier.edit', compact('supplier', 'title'));
     }
 
     /**
@@ -67,7 +76,11 @@ class SupplierController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $supplier = Supplier::findOrFail($id);
+        $validated = $request->validate(['name', 'contact_number', 'address']);
+        $supplier->update($validated);
+        return redirect()->route('supplier.index')
+            ->with('success', 'Supplier berhasil diperbarui.');
     }
 
     /**
@@ -75,6 +88,9 @@ class SupplierController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $supplier = Supplier::findOrFail($id);
+        $supplier->delete();
+        return redirect()->route('supplier.index')
+            ->with('success', 'Supplier berhasil dihapus.');
     }
 }

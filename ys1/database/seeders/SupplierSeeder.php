@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Suppoert\Str;
+use App\Models\Supplier;
 
 class SupplierSeeder extends Seeder
 {
@@ -14,10 +15,12 @@ class SupplierSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('suppliers')->insert([
-            'name' => fake()->company(),
-            'contact_number' => fake()->phoneNumber(),
-            'address' => fake()->address(),
-        ]);
+        Supplier::factory(50)->create();
+
+        // DB::table('suppliers')->insert([
+        //     'name' => fake()->company(),
+        //     'contact_number' => fake()->phoneNumber(),
+        //     'address' => fake()->address(),
+        // ]);
     }
 }
