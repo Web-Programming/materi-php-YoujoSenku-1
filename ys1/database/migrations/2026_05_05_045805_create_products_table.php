@@ -17,7 +17,7 @@ return new class extends Migration
             $table->decimal('price', 20, 2);
             $table->text('description')->nullable();
             $table->enum('status',['new','used'])->default('new');
-            $table->boolean('is_active')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->date('release_date')->nullable();
 
             //menambahkan kolom create_at dan update_at secara otomatis
