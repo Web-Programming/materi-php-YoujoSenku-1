@@ -60,7 +60,7 @@
         </div>
         <div class="mb-3">
             <label for="release_date" class="form-label">Tanggal Rilis</label>
-            <input type="date" name="release_date" id="release_date" rows="3" class="form_control @error('release_date') is-invalid @enderror">{{ old('release_date', $product->release_date) }}</input>
+            <input type="date" name="release_date" id="release_date" rows="3" class="form_control @error('release_date') is-invalid @enderror" value="{{ old('release_date', $product->release_date) }}">
             @error('release_date')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
