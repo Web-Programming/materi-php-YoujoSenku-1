@@ -45,7 +45,11 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate(['name', 'contact_number', 'address']); // validasi input
+        $validated = $request->validate([
+            'name' => 'required|string|max:100',
+            'contact_number' => 'required|number|max:20',
+            'address' => 'required|string|max:100',
+        ]); // validasi input
         Supplier::create($validated); // simpan ke DB
         return redirect()->route('supplier.index')
         ->with('success', 'Supplier berhasil ditambahkan.');
@@ -77,7 +81,11 @@ class SupplierController extends Controller
     public function update(Request $request, string $id)
     {
         $supplier = Supplier::findOrFail($id);
-        $validated = $request->validate(['name', 'contact_number', 'address']);
+        $validated = $request->validate([
+            'name' => 'required|string|max:100',
+            'contact_number' => 'required|number|max:20',
+            'address' => 'required|string|max:100',
+        ]);
         $supplier->update($validated);
         return redirect()->route('supplier.index')
             ->with('success', 'Supplier berhasil diperbarui.');
