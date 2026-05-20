@@ -43,3 +43,10 @@ id, name (varchar(150)), phone (varchar(15)), address (text, nullable)
 2. Gunakan ProdukController untuk menghandle post request
 3. Gunakan model Produk untuk menyimpan data produk dan mengupdate
 
+## Buat migration role :
+1. php artisan make:migration add_role_to_users_table
+2. $table->dropColumn('role');       //diletakkan di down
+3. $table->string('role')->default('user');       //diletakkan di up
+
+## Menggunakan gates :
+1. Buat Provider dengan nama AuthServiceProvider dengan menggunakan perintah 'php artisan make:provider AuthServiceProvider'

@@ -161,13 +161,14 @@ Route::post('/logout', [AuthController::class, 'logout'])
 // Semua route di dalam group ini hanya bisa diakses jika sudah login
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/produk', [ProductController::class, 'index']);
-    Route::get('/produk/create', [ProductController::class, 'create']);
-    Route::get('/produk/{id}', [ProductController::class, 'show']);
-    Route::get('/produk/edit/{id}', [ProductController::class, 'edit']);
-    Route::post('/produk', [ProductController::class, 'store']);
-    Route::put('/produk/update/{id}', [ProductController::class, 'update']);
-    Route::delete('/barang/{id}', [ProductController::class, 'destroy']);
-    //Daftarkan Route Lainnya di Sini :
-    // - Route Supplier
+    // Route::get('/produk', [ProductController::class, 'index']);
+    Route::resource('/produk', ProductController::class);
+    Route::get('/produk/search', [ProductController::class, 'search']);
+    Route::get('/produk/detail', [ProductController::class, 'detail']);
+    // Route::get('/produk/create', [ProductController::class, 'create']);
+    // Route::get('/produk/{id}', [ProductController::class, 'show']);
+    // Route::get('/produk/edit/{id}', [ProductController::class, 'edit']);
+    // Route::post('/produk', [ProductController::class, 'store']);
+    // Route::put('/produk/update/{id}', [ProductController::class, 'update']);
+    // Route::delete('/barang/{id}', [ProductController::class, 'destroy']);
 });

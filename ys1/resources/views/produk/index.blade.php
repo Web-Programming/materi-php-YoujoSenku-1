@@ -2,11 +2,18 @@
 
 @section('title', $title)
 
+@section('navbar')
+
 @section('sidebar')
     @parent
     @section('submenu-produk')
-        <a href="/produk/create" class="list-group-item list-group-item-action ps-4>">Tambah Produk</a>
-        <a href="/produk/search" class="list-group-item list-group-item-action ps-4>">Cari Produk</a>
+        @can('create-product')
+            <a href="/produk/create" class="list-group-item list-group-item-action ps-4>">Tambah Produk</a>
+        @endcan
+        {{-- @cannot('create-product')
+            <span class="badge bg-secondary">User tidak diizinkan menambah produk</span>
+        @endcannot --}}
+        <a href="/produk/search"  class="list-group-item list-group-item-action ps-4>">Cari Produk</a>
     @endsection
 
 @endsection
