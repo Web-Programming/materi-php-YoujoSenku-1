@@ -14,6 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
+        Gate::authorize('viewAny', Product::class);
         $title = 'Daftar Produk';
 
         // $products = [
@@ -51,6 +52,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('create', Product::class);
         $validated = $request->validate([
             'name' => 'required|string|max:100',
             'price' => 'required|numeric|min:0',
@@ -92,6 +94,8 @@ class ProductController extends Controller
     public function update(Request $request, string $id)
     {
         $product = Product::findOrFail($id);
+        Gate::authorize('update', $product);
+
         $validated = $request->validate([
             'name' => 'required|string|max:100',
             'price' => 'required|numeric|min:0',
@@ -100,6 +104,7 @@ class ProductController extends Controller
             'is_active' => 'nullable|boolean',
             'release_date' => 'nullable|date',
         ]);
+        
         $validated['is_active'] = $request->has('is_active') ? 1 : 0;
         $product->update($validated);
         return redirect()->route('produk.index')
